@@ -1,0 +1,36 @@
+#include <iostream>
+#include<sys/types.h>
+#include<unistd.h>
+#include<sys/wait.h>
+
+using namespace std;
+
+int main(int argc,char* argv[])
+
+{
+    int N;
+    cout<<"Enter the N Value"<<endl;
+    cin>>N;
+    int pid;
+    if(pid == 0){
+       for(int i=0; i<=10; i++)
+    
+        if(i%2 != 0)
+     {
+        cout<<"odd numbers are"<<i<<endl;
+     }
+    }
+    else{
+        wait(0);
+       for(int i=0;i<=10;i++)
+        if(i%2 == 0)
+        {
+         cout<<"even numbers are" << i <<endl;
+        }
+    }
+   
+     return 0;
+}
+    
+    
+    

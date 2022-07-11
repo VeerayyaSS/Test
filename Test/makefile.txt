@@ -1,0 +1,30 @@
+CC = g++
+INC = ./inc
+OBJ = ./obj
+SRC = ./src
+BIN = ./bin
+LFLAGS= -o
+CFLAGS = -c -g -Wall -Werror
+IFLAGS = -I$(INC)
+
+all: $(BIN)app valgrind
+
+$(BIN)app:$(OBJ)/evenodd.o
+	$(CC) $(CFLAGS) $(BIN)/evenodd $(OBJ)/evenodd.o
+	mv *.o $(OBJ)
+
+$(OBJ)/evenodd.o:$(SRC)/evenodd.cpp
+$(CC) $(CFLAGS) $(IFLAGS) $(SRC)/evenodd.cpp -o $(OBJ)/evenodd.o
+
+
+valgrind: 
+	valgrind --leak-check=full $(BIN)/app
+	mv valgrind $(BIN)
+
+clean:
+	rm -f $(OBJ)/*.o
+	rm -f a.out
+	rm -f $(BIN)/app
+
+
+
