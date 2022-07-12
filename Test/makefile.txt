@@ -9,12 +9,12 @@ IFLAGS = -I$(INC)
 
 all: $(BIN)app valgrind
 
-$(BIN)app:$(OBJ)/evenodd.o
+$(BIN)/app:$(OBJ)/evenodd.o
 	$(CC) $(CFLAGS) $(BIN)/evenodd $(OBJ)/evenodd.o
 	mv *.o $(OBJ)
 
 $(OBJ)/evenodd.o:$(SRC)/evenodd.cpp
-$(CC) $(CFLAGS) $(IFLAGS) $(SRC)/evenodd.cpp -o $(OBJ)/evenodd.o
+$(CC) $(CFLAGS) $(LFLAGS) $(IFLAGS) $(SRC)/evenodd.cpp
 
 
 valgrind: 
